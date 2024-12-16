@@ -1,4 +1,3 @@
-import React from 'react'
 import {useState, useEffect} from 'react';
 import CurrencyDropdown from './CurrencyDropdown';
 
@@ -6,27 +5,27 @@ import CurrencyDropdown from './CurrencyDropdown';
 const CurrencyConverter = () => {
     const[currencies, setCurrencies]= useState([]);
     const[amount, setAmount] = useState(1);
-    const[fromCurrency, setFromCurrency]= useState('USD');
-    const[toCurrency, settoCurrency] = useState('INR')
+    // const[fromCurrency, setFromCurrency]= useState('USD');
+    // const[toCurrency, settoCurrency] = useState('INR')
 
-    // currencies="https://api.frankfurter.app/currencies"
-    const fetchCurrencies = async()=>{
-        try{
-            const res = await fetch("https://api.frankfurter.app/currencies");
-            const data= await res.json()
-
-            setCurrencies(object.keys(data))
-
-        }catch(error){
-            console.error('Error fetching', error);
-
-        }
-    }
+    // const fetchCurrencies = async()=>{
+        //     try{
+            //         const res = await fetch(currencyApi);
+            //         const data= await res.json()
+            
+            //         setCurrencies(object.keys(data))
+            
+            //     }catch(error){
+                //         console.error('Error fetching', error);
+                
+                //     }
+                // }
+    const currencyApi = "https://api.frankfurter.dev"
     useEffect(()=>{
-        fetchCurrencies();
+        fetch(currencyApi).then((res) => {res.json}).then((data) => {console.log(data)})
 
     },[])
-    console.log(currencies);
+    // console.log(currencies);
 
     //currencies = 'https://api.frankfurter.app/latest?amount=1&from=USD&to=INR';
 
