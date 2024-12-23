@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaRegStar } from "react-icons/fa";
+import { HiStar } from "react-icons/hi";
 
 const CurrencyDropdown = ({
   currencies, 
@@ -14,12 +15,11 @@ const CurrencyDropdown = ({
 
       <div className="mt-1 relative ">
         <select value={currency} onChange={(e=>{setCurrency(e.target.value)})}className= "w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" >
-          {/* render favorites */}
+          {favorites?.map((currency, key)=> <option className="bg-gray-200" value={currency} key={key}>{currency}</option>)}
           <hr />
-          { currencies?.map((currency)=>{
-            <option value={currency} key={currency}>{currency}</option>})}
+          { currencies .filter(c =>!favorites.includes(c)).map((currency, key)=> <option value={currency} key={key}>{currency}</option>)}
         </select>
-        <button onClick= {()=>handleFavorite(currency)}className='absolute inset-y-0 pr-5 flex items-center text-sm leading-5'><FaRegStar /></button>
+        <button onClick= {()=>handleFavorite(currency)}className='absolute inset-y-0 pr-5 flex items-center text-sm leading-5'><HiStar /> <FaRegStar /></button>
       </div>
     </div>
   )
