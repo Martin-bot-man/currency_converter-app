@@ -61,6 +61,15 @@ const CurrencyConverter = () => {
 
     };
     const handleFavorite =(currency)=>{
+        let updatedFavorites = [...favorites];
+        if(favorites.includes(currency)){
+            updatedFavorites = updatedFavorites.filter((fav)=>fav!==currency);
+
+        }else{
+            updatedFavorites.push(currency);
+        }
+        setFavorites(updatedFavorites)
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
         //add to favoriters
 
     }
@@ -73,7 +82,7 @@ const CurrencyConverter = () => {
     //currencies = 'https://api.frankfurter.app/latest?amount=1&from=USD&to=INR';
 
   return(
-     <div className="max-w-xl mx-auto my-10 p-5 bg-white rounded-lg shadow-md">
+     <div className="max-w-xl mx-auto my-10 p-5 bg-white-600 rounded-lg shadow-md">
         <h2 className="mb-5 text-2xl font-semibold text-gray-700">Currency converter</h2>
        
         <div  className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
@@ -97,7 +106,7 @@ const CurrencyConverter = () => {
         </div>
 
         <div mt-4>
-            <label htmlFor="amount" className='block text-sm font-medium text-gray-700'>Amount</label>
+            <label htmlFor="amount" className='block text-sm font-medium text-gray-700'> Amount</label>
             <input type="number"  onChange={(e)=> setAmount(e.target.value)} value={amount} className='w-full p-2 border-gray-300 rounded-md shadow-sm focus:outline-none  focus:ring-2 focus:ring-indigo-500 mt-1'/>
         </div>
         <div className="flex justify-end mt-6 ">

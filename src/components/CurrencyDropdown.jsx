@@ -1,6 +1,5 @@
 import React from 'react'
-import { FaRegStar } from "react-icons/fa";
-import { HiStar } from "react-icons/hi";
+import { HiOutlineStar, HiStar } from "react-icons/hi";
 
 const CurrencyDropdown = ({
   currencies, 
@@ -9,6 +8,7 @@ const CurrencyDropdown = ({
   favorites,
   handleFavorite, 
   title=""}) => {
+    const isFavorite = curr => favorites.includes(curr)
   return (
     <div>
       <label htmlFor={title} className="block text-sm font-medium text-gray-700">{title}</label>
@@ -19,7 +19,7 @@ const CurrencyDropdown = ({
           <hr />
           { currencies .filter(c =>!favorites.includes(c)).map((currency, key)=> <option value={currency} key={key}>{currency}</option>)}
         </select>
-        <button onClick= {()=>handleFavorite(currency)}className='absolute inset-y-0 pr-5 flex items-center text-sm leading-5'><HiStar /> <FaRegStar /></button>
+        <button onClick= {()=>handleFavorite(currency)}className='absolute inset-y-0 pr-5 flex items-center text-sm leading-5'> {isFavorite(currency)? <HiStar /> :<HiOutlineStar />}</button>
       </div>
     </div>
   )
