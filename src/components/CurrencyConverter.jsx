@@ -83,7 +83,7 @@ const CurrencyConverter = () => {
 
   return(
      <div className="max-w-xl mx-auto my-10 p-5 bg-white-600 rounded-lg shadow-md">
-        <h2 className="mb-5 text-2xl font-semibold text-gray-700">Currency converter</h2>
+        <h2 className="mb-5 text-2xl font-semibold text-gray-700">Currency converter </h2>
        
         <div  className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
             <CurrencyDropdown 
