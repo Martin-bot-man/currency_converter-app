@@ -34,7 +34,7 @@ function App() {
       <footer className="w-full bg-white/80 backdrop-blur-sm border-t border-gray-200/50 mt-auto">
         <div className="container mx-auto px-4 py-6">
           <div className="text-center text-gray-600 text-sm">
-            <p>© 2024 Currency Exchange. Real-time rates updated daily.</p>
+            <p>© 2025 Currency Exchange. Real-time rates updated daily.</p>
             <p className="mt-1 text-xs text-gray-500">
               Exchange rates are for informational purposes only
             </p>
