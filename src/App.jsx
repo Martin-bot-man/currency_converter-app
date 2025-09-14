@@ -9,7 +9,7 @@ function App() {
       <header className="w-full bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200/50">
         <div className="container mx-auto px-4 py-6">
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 black-ops-one-regular">
               Currency Exchange
             </h1>
             <p className="text-gray-600 text-sm md:text-base">
